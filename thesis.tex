@@ -1,0 +1,25 @@
+\documentclass{tjumaster}
+
+\begin{document}
+
+  \graphicspath{{figures/}}
+
+  \covermatter
+  \input{contents/cover}
+
+  \frontmatter
+  \input{contents/abstract}
+  \tableofcontents\thispagestyle{plain}
+
+  \mainmatter
+  \input{contents/chapter1}
+  \input{contents/chapter2}
+
+  \backmatter
+  \clearpage
+  \input{contents/ack}
+  \makeref{thesis}
+  \pagestyle{fancy}
+  \input{contents/resume}
+
+\end{document}
