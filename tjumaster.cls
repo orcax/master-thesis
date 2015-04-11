@@ -69,6 +69,12 @@
 
 \RequirePackage{fancyhdr}
 
+\fancypagestyle{front}{
+  \pagenumbering{Roman}
+  \setcounter{page}{1}
+  \clearpage
+}
+
 % Leave plain page style for TOC
 % Do NOT change plain page style for other pages
 \fancypagestyle{plain}{
@@ -78,29 +84,33 @@
   \setcounter{page}{3}  % Manually set page number for TOC
 }
 
-\newcommand{\covermatter}{
-  \pagestyle{empty}
-}
-
-\newcommand{\frontmatter}{
-  \pagenumbering{Roman}
-  \setcounter{page}{1}
-  \pagestyle{fancy}
-}
-
-\newcommand{\mainmatter}{
-  \makeatletter
+\fancypagestyle{main}{
   \renewcommand{\sectionmark}[1]{ \markboth{##1}{} }
+  \fancyhead{}
   \fancyhead[RO]{\song \wuhao
       第 \thesection 章\hspace*{0.5em}\leftmark}
   \fancyhead[LE]{\song \wuhao
       同济大学\hspace*{0.5em}硕士学位论文\hspace*{0.5em}\thesis@ctitle}
   \pagenumbering{arabic}
   \setcounter{page}{1}
-  \makeatother
+}
+
+\newcommand{\covermatter}{
+  \pagestyle{empty}
+}
+
+\newcommand{\frontmatter}{
+  \clearpage
+  \pagestyle{front}
+}
+
+\newcommand{\mainmatter}{
+  \clearpage
+  \pagestyle{main}
 }
 
 \newcommand{\backmatter}{
+  \clearpage
   \pagestyle{fancy}
 }
 

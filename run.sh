@@ -1,5 +1,5 @@
-xelatex thesis
-bibtex thesis
+#xelatex thesis
+#bibtex thesis
 xelatex thesis
 xelatex thesis
 open thesis.pdf
