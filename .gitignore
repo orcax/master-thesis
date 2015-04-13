@@ -2,7 +2,6 @@
 *.bbl
 *.blg
 *.log
-thesis.pdf
 *.toc
 *.db
 .DS_Store
