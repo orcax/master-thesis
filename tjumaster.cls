@@ -19,6 +19,9 @@
 \RequirePackage{indentfirst}
 \RequirePackage{blindtext}
 
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
 \setcounter{secnumdepth}{4}  % Set paragraph as 4th depth
 \setlength{\parindent}{2em}  % Indentation for first line
 \let\cleardoublepage\clearpage  % For twosided book
@@ -196,7 +199,6 @@
 %                         Cover                            %
 %----------------------------------------------------------%
 
-\RequirePackage{graphicx}
 \RequirePackage{setspace}
 \RequirePackage{array}
 
