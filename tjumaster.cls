@@ -18,6 +18,7 @@
 \RequirePackage[top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm]{geometry}
 \RequirePackage{indentfirst}
 \RequirePackage{blindtext}
+\RequirePackage{color}
 
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}

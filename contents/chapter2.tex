@@ -1,6 +1,8 @@
 \section{信息自主流动机制的方案概述}
+本章将阐述基于P2P网络的信息自主流动机制的基本方案。从用户和互联网传播信息的关系入手，根据信息本身在抽象层面上的通用属性以及用户的行为和偏好，建立一套统一的信息描述模型和用户行为偏好模型。其次，基于已建立的两种描述模型，利用相关的算法，进行信息间匹配问题的研究。然后利用信息传播中起点、终点和传播路径等参数的特点，建立一套分布式系统的拓扑结构，并利用信息描述模型，整合成一套完整的系统逻辑结构模型。最后，针对该结构模型的特征和属性，研究各个传播节点间的通信模式，最终形成一套完整的信息自主流动机制。
 
 \subsection{文本信息的匹配与推荐模型}
+纯文本数据的特征：稀疏性和高维度，举例来说： given corpus may be drawn from a lexicon of about 100,000 words, but a given text document may contain only a few hundred words. Thus, a corpus of text documents can be represented as a sparse term- document matrix of size n × d, when n is the number of documents, and d is the size of the lexicon vocabulary. The (i,j)th entry of this matrix is the (normalized) frequency of the jth word in the lexicon in document i. The large size and the sparsity of the matrix has immediate implica- tions for a number of data analytical techniques such as dimensionality reduction.
 
 \subsection{用户兴趣的挖掘与描述模型}
 
@@ -8,3 +10,4 @@
 
 \subsection{信息自主流动的原型系统}
 
+\subsection{小结}
