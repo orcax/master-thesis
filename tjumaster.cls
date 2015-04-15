@@ -19,6 +19,7 @@
 \RequirePackage{indentfirst}
 \RequirePackage{blindtext}
 \RequirePackage{color}
+\RequirePackage{amsmath}
 
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
