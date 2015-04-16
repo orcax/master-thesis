@@ -22,6 +22,8 @@
 \RequirePackage{amsmath}
 \RequirePackage{extarrows}
 
+\newtheorem{mydef}{定义}[section]
+
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 
