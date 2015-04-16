@@ -20,6 +20,7 @@
 \RequirePackage{blindtext}
 \RequirePackage{color}
 \RequirePackage{amsmath}
+\RequirePackage{extarrows}
 
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
