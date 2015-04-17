@@ -1,6 +1,6 @@
-#rm *.aux
-#xelatex thesis
-#bibtex thesis
-#xelatex thesis
+rm *.aux
+xelatex thesis
+bibtex thesis
+elatex thesis
 xelatex thesis
 open thesis.pdf
