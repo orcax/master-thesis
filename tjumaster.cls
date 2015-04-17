@@ -19,17 +19,25 @@
 \RequirePackage{indentfirst}
 \RequirePackage{blindtext}
 \RequirePackage{color}
-\RequirePackage{amsmath}
-\RequirePackage{extarrows}
-
-\newtheorem{mydef}{定义}[section]
-
-\usepackage{graphicx}
-\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 
 \setcounter{secnumdepth}{4}  % Set paragraph as 4th depth
 \setlength{\parindent}{2em}  % Indentation for first line
 \let\cleardoublepage\clearpage  % For twosided book
+
+%----------------------------------------------------------%
+%                          Math                            %
+%----------------------------------------------------------%
+
+\RequirePackage{amsmath}
+\RequirePackage{extarrows}
+\RequirePackage{caption}
+%\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+\RequirePackage{subfig}
+\newtheorem{mydef}{定义}[section]
+
+\RequirePackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 
 %----------------------------------------------------------%
 %                         Fonts                            %

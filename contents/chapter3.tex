@@ -211,7 +211,40 @@ $\mathcal{W}$ & sentimental keywords dictionary of size $|\mathcal{W}|$\\
 \item 弹幕密度影响：弹幕的密度反映了弹幕视频的特征，因为一些现有的工作使用频率提取镜头。不同于文档，其中的每一个单词是依次产生并均匀地分布的，而弹幕生成的不确定性取决于用户的感觉是否将被某个镜头所触发。例如，弹幕更可能在精彩镜头的区间内生成。 
 \end{itemize}
 
+现在，可以开始衡量小段和全局情感特征之间的相似性。鉴于视频集合$\mathcal{V}=\{v_1, v_2,..., v_{|\mathcal{V}|}\}$，而弹幕集合$\mathcal{C}=\{\vec{c_{v_1}}\}$，其中的关键字来自大小为$|\mathcal{W}|$的字典，可以得到大小为$|\mathcal{V}|$*$|\mathcal{W}|$的视频-弹幕矩阵，矩阵元素的值是关键字的数量。为了分解的视频-弹幕矩阵成两个矩阵，大小为$|\mathcal{V}|$*$K$的视频-特征矩阵和大小为$K$*$|\mathcal{W}|$的特征-弹幕矩阵。在这种情况下应用的时LDA，而不是SVD，因为LDA在主题分析上更好，尽管其速度推理过程比SVD要慢一点。在此之后，我们可以得到小段$f_v$的特征相似度$d_f$，通过$f_v$的关键字强度向量和全局情感特征之间$ e_v$：
+\begin{equation}
+d_{f_v}=cos(f_v,e_v)=\frac{\sum_{i=1}^{|\mathcal{W}|}g_i \times n_i}{%
+\sqrt{\sum(g_i)^2} \times \sqrt{\sum(n_i)^2}}
+\end{equation}
 
+\subsubsection{精彩镜头边界检测}
+之后，根据给定的全局情感特征，得到特征相似度$d_f$，就可以通过算法\ref{alg:highlight}检测出精彩镜头的范围。该算法表明，在每次迭代期间，小段的最大的特征相似度在全局情感特征中是第一次被选出的，并且从中间向两侧依次比较。此外，还需要设置两个阈值。 $\epsilon$控制了下边界的最大相似特征$d_{f_{v,k}}$，这是因为如果$d_{f{v,k}}$过小，可能没有具有这种情感的精彩镜头存在，所以应该忽略这个特征。 $\delta$ 控制了潜在的精彩镜头的最左边和最右边小段的边界。更好的方法是根据不同的视频，设置动态的$\delta$ ，因为阈值会随着弹幕的数量和视频的长度变化。
+\begin{algorithm}
+\caption{精彩镜头的边界检测算法}
+\ForEach{frame $f_{v,i} \in v$}{
+   calculate keyword strength vector $f_{v,i}=(g_1, g_2,..., g_{|\mathcal{W}|})$\;
+}
+\ForEach{global emotional feature $e_{v,j} \in e_v$}{
+  \ForEach{each frame $f_{v,i} \in v$}{
+    calculate feature similarity $d_{f_{v,i}}=cos(f_{v,i}, e_{v,j})$\;
+  }
+  find $max(d_{f_{v,k}})$ indexed by $k$\;
+  \lIf{$d_{f_{v,k}} < \epsilon$}{continue}
+  set $n_l:=k-1$\;
+  \lWhile{$n_l \ge 1$ and $|d_{f_{v,n_l}}-d_{f_{v,n_l+1}}|<\delta$}{$n_l:=n_l-1$}
+  set $n_r:=k+1$\;
+  \lWhile{$n_r \le N_v$ and $|d_{f_{v,n_r}}-d_{f_{v,n_r-1}}|<\delta$}{$n_r:=n_r+1$}
+  $\{f_{v,n_l},...,f_{v,n_r}\}$ is the highlight shot with feature $e_{v,j}$\;
+}
+\label{alg:highlight}
+\end{algorithm}
+
+\subsubsection{精彩镜头相似度计算}
+一旦精彩镜头从视频提取出来之后，就可以计算出该精彩镜头的局部特征向量$\vec{e_s}=(w_1, w_2,..., w_K)$，其中每个$w_i$是精彩镜头$s$的每一个特征维度的权重。首先，计算出精彩镜头的关键词词频$n_s=(n_1, n_2,..., n_{|\mathcal{W}|})$。然后，对每一个视频的全局情感向量的特征$e_{v,k}=(n_1, n_2,...,n_{|\mathcal{W}|})$和权重$w_{v,k}$，计算余弦相似度：
+\begin{equation}
+  w_k=w_{v,k}\times cos(n_s, e_{v,i}), (1\le k\le K)
+\end{equation}
+然后，对给定的两个精彩镜头，各自计算它们的局部特征向量$\vec{e_{s_1}}$和$\vec{e_{s_2}}$之后，就可以衡量它们之间在语义上的相似度了。
 
 \subsection{文本网的分析与建模方法}
 
