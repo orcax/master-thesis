@@ -19,6 +19,8 @@
 \RequirePackage{indentfirst}
 \RequirePackage{blindtext}
 \RequirePackage{color}
+\RequirePackage[numbers,sort&compress]{natbib}
+\setlength{\bibsep}{0.5ex}
 
 \setcounter{secnumdepth}{4}  % Set paragraph as 4th depth
 \setlength{\parindent}{2em}  % Indentation for first line
