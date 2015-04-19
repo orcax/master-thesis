@@ -3,23 +3,29 @@
 %% CreatedDate = 02/22/2015
 
 \begin{cabstract}
-应概括地反映出本论文的主要内容,包括工作目的、研究方法、研究成果和结论,要突出本论
- 文的创造性成果。摘要力求语言精炼准确,硕士学位论文建议 1000
-  字以内,博士学位论文建议 3000 字以内。摘要中不要出现图片、图表、表格或其他插图材料。\\
+在互联网技术越来越成熟的今天，各类网站平台已经逐渐成为人们生活中重要的一部分，它们拉近了人与人、人与社会、人与世界的距离。但是，在信息爆棚的同时，用户获得到的真正感兴趣信息的比例却在逐渐下跌。虽然许多社交网站和电子商务平台已经可以根据用户的兴趣进行个性化推荐，但是每个网站之间保持的独立性和封闭性，导致用户依然很难一下子获得大量有用的信息，因为用户往往需要在各大网站上重复执行大量冗余的操作。同时，网站之间数据不共享带来的局限性，也可能导致推荐系统对用户兴趣判断的不准确。基于上述问题，本文提出了一套基于P2P网络的信息自主流动机制。在这套机制中，每个用户既充当信息发布者，又能充当信息接受者，所有用户之间都是点对点进行信息传播。由于信息传播的方式依赖于用户兴趣与兴趣、兴趣与资源主题之间的相似性，所以用户接收到的信息往往是其感兴趣的。为了实现这样一套全新的机制，本文从信息资源的描述与构建、用户兴趣的表示与匹配和P2P网络的信息自主流动等三个方面进行深入分析。
 
-学位论文原则上应用汉语撰写,对于用汉语授课并享受中国政府奖学金的博士硕士留学研究生, 学位论文如用英语(德语、法语)撰写,硕士学位论文不少于 3000 汉字摘要,博士学位论文不少于 5000 汉字摘要;对于其他情况(含用英语授课)的博士硕士留学研究生,学位论文如用英语(德语、 法语)撰写,可不要求撰写汉语摘要,但必须有英语摘要。\\
+在信息资源描述与构建的工作上，本研究针对四种互联网文本进行主题识别，从而用主题分布来描述文本资源，主要工作和成果包括：1）基于标签的长文本主题识别方法，用于分析新闻、博客等相互独立的纯文本资源的带标签主题；2）基于弹幕的视频精彩镜头提取方法，利用新型的弹幕短文本数据对视频精彩镜头进行判断与索引；3）文本网的主题识别方法，构建概率有向图对网页等相互链接的文本资源进行主题建模；4）文本流的主题识别方法，用于分析主题随时间变化的过程。
 
-关键词是为了便于文献索引和检索工作,从论文中选取出来用以表示全文主题内容信息的单词 或术语,摘要内容后另起一行标明,一般 3~5 个,之间用“,”分开。 \\
+在用户兴趣表示与匹配的工作上，本研究根据用户兴趣的关联性和动态性两个特征，对用户兴趣进行建模，主要工作和成果包括：1）基于静态兴趣分类树修正的兴趣匹配方法，用于解决兴趣间的层次关系所带来的兴趣相似度计算问题；2）基于动态兴趣伸展树修正的兴趣匹配方法，用于解决兴趣动态变化所带来的兴趣相似度计算问题；3）用户兴趣集建模，基于两种兴趣树对用户兴趣进行表示和匹配，优于传统的兴趣向量表示方法。
 
-\makeckeyword{关键字，摘要}
+在P2P网络信息自主流动的工作上，本研究基于提出的用户兴趣集模型，详细讨论了兴趣覆盖网络中信息传播的机制，主要工作和成果包括：1）用户兴趣覆盖网络的初始化构建方法；2）用户兴趣变化导致的覆盖网络拓扑结构自适应调整方法；3）信息资源的传播方法；
+
+最后，本研究通过实验证明了上述部分方法在兴趣传播方面比已有传统的方法更加合适。其中，带标签的文本主题识别方法在实际应用过程中比无标签主题更有帮助；基于弹幕的视频精彩镜头提取在准确率和覆盖率上比传统的基于词频的方法更高；基于两种兴趣树的兴趣相似度匹配能够有效解决兴趣的层次性和动态性；基于兴趣覆盖网络的资源传播机制，相比传统的基于好友关系网络的方法，使用户更有可能获得其真正感兴趣的信息。除此之外，本文最后详细说明了基于上述机制的原型系统的实现细节，包括需求功能设计、基于服务端-客户端的系统架构、数据存储机制等，为将来真正投入使用做好准备。
+
+\makeckeyword{信息自主流动，文本主题识别，用户兴趣模型，兴趣覆盖网络}
 \end{cabstract}
 
 \begin{eabstract}
-First Paragraph
+With burgeoning Internet technologies, various online platforms plays an important role in people's life, drawing the gap between people, society and even the world. However, in the era of information explosion, ratio of the information that interests people to all that they obtain is dropping. Even if many social networks and e-business websites provide service of personalized recommendation, independence and isolation among websites leads to the problem that people can still hardly obtain abundant useful informaiton at once, for redundant operations are executed repeatedly. Meanwhile, limitation of data isolation may also result in inaccuracy of recommender system. Therefore, the thesis propose a P2P-based mechanism of information spontaneous propagation, where every user acts as both information receiver and publisher and information flows in this peer-to-peer network. The method depends on the similarity between user interests and resource topics so that it is more likely for users to receive fascinating information. To implement his new mechanism, the thesis dives into analysis in three aspects, namely description and construction of information resource, representation and matching of user interest and informaiton spontaneous propagation on P2P network.
 
-SecondParagraph
+In the work of description and construction of information resource, the research focuses on four kinds of Internet text for topic detection, so textual resource can be described as topic distribution. Main contributions include: 1) tag-based topic detection for long text, which is used to analyze independent resources like news and blogs; 2) video highlight shot extraction based on time-sync comment, which utilizes TSC to analyze and index video shots; 3) topic detection for text network, which constructs probabilistic directed network to analyze web pages that link each other; and 4) topic detection for text stream, which aims to analyze topic trend over time.
 
-Tongji University, located in Shanghai, has more than 50,000 students and 8,000 staff members (as of 1 September 2007). It offers degree programs at both undergraduate and postgraduate levels. Established in 1907 by the German government together with German physicians in Shanghai, Tongji is one of the oldest and most prestigious universities in China. Among its various departments it is especially highly ranked in engineering, among which its architecture, urban planning, and civil engineering departments have consistently ranked first in China for decades, and its automotive engineering, oceanography, environmental science, software engineering, German language departments are also ones of the best domestically.
+In the work of representation and matching of user interest, the research focuses on model formalization according to relatedness and dynamics of user interest. Main contributions include: 1) modified interest matching method based on static interest category tree, which is used to solve the problem of hierarchical relation of interests matching; 2) modified interest matching method based on dynamic interest splay tree, which is used to solve the problem of dynamic interest trend; 3) user interest modeling, which is based on two interest trees, and performs better than traditional interest vector.
 
-\makeekeyword{English Keywords, Abstract}
+In the work of information spontaneous propagation on P2P network, the research is based on user interest set and discusses the information propagation mechanism in interest overlay network. Main contributions include: 1) construction method of user interest overlay network; 2) topology update according to user interest changes; 3) resource propagation method.
+
+Finally, the experiment proves that most of above methods performs better than traditional method. Amongst them, labeled topic detection is much more helpful in practical application; Highlight shot extraction with TSC performs better in accuracy and coverage rate than traditional method that based on word frequency; Interest similarity based on two interest trees can effectively reflects interest features; The information propagation method in interest overlay network, compared to follower-followee network, can provide more related information that interests users. In addition, in order to put the system in to use, the thesis demonstrates the detail of prototype system comprising use cases, client-server dual architecture and data storage mechanism, etc.
+
+\makeekeyword{Information Spontaneous Propagation, Topic Detection in Text, Use Interest Model, Interest Overlay Network}
 \end{eabstract}

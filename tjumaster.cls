@@ -95,12 +95,12 @@
 
 % Leave plain page style for TOC
 % Do NOT change plain page style for other pages
-\fancypagestyle{plain}{
-  \fancyhead{}
-  \fancyhead[LE,RO]{\song \wuhao 同济大学\hspace*{0.5em}硕士学位论文\hspace*{0.5em}目录}
-  \pagenumbering{Roman}
-  \setcounter{page}{3}  % Manually set page number for TOC
-}
+%\fancypagestyle{plain}{
+%  \fancyhead{}
+%  \fancyhead[LE,RO]{\song \wuhao 同济大学\hspace*{0.5em}硕士学位论文\hspace*{0.5em}目录}
+%  \pagenumbering{Roman}
+%  \setcounter{page}{3}  % Manually set page number for TOC
+%}
 
 \fancypagestyle{main}{
   \renewcommand{\sectionmark}[1]{ \markboth{##1}{} }
@@ -367,7 +367,7 @@
   \begin{center}
     {\hei \sanhao \bfseries 摘\hspace{2em}要}
   \end{center}
-  \begin{spacing}{1.5}
+  \begin{spacing}{1.3}
   \song \xiaosi
 }{
   \end{spacing}
@@ -384,7 +384,7 @@
 \newenvironment{eabstract}{
   \fancyhead[LE,RO]{Tongji University Master Abstract}
   \begin{center}
-    {\arial \sanhao \bfseries Abstract}
+    {\arial \sanhao \bfseries Abstract} \\
   \end{center}
   \begin{spacing}{1.5} \timesnew \xiaosi
 }{
